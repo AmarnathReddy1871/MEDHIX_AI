@@ -1,6 +1,6 @@
 services:
   backend:
-    image: balarakesh/idp-backend:latest
+    image: Amar/backend:latest
     environment:
       HOST: 0.0.0.0
       PORT: 8000
