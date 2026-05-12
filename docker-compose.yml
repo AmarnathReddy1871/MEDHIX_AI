@@ -1,0 +1,26 @@
+services:
+  backend:
+    image: balarakesh/idp-backend:latest
+    environment:
+      HOST: 0.0.0.0
+      PORT: 8000
+      CHROMA_DB_PATH: /app/chroma_db
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      SUPABASE_URL: ${SUPABASE_URL:-}
+      SUPABASE_ANON_KEY: ${SUPABASE_ANON_KEY:-}
+    ports:
+      - "8000:8000"
+    volumes:
+      - chroma_data:/app/chroma_db
+    restart: unless-stopped
+
+  frontend:
+    image: balarakesh/idp-frontend:latest
+    depends_on:
+      - backend
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+
+volumes:
+  chroma_data:
