@@ -1,4 +1,4 @@
-# Quantum PDF Chatbot Backend
+# MEDHIX AI Chatbot Backend
 
 A FastAPI-based backend that combines quantum computing with AI to provide enhanced PDF document search and retrieval capabilities.
 
